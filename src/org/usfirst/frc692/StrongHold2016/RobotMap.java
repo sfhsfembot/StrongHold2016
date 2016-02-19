@@ -33,7 +33,6 @@ public class RobotMap {
     public static SpeedController gatherergathererArmLiftMotor;
     public static DigitalInput gathererlimitSwitchUp;
     public static DigitalInput gathererlimitSwitchDown;
-    public static DigitalInput gathererlimitSwitchMiddle;
     public static SpeedController scalerscalerMotor;
     public static Relay scalerscalerRelease;
 
@@ -72,9 +71,6 @@ public class RobotMap {
         
         gathererlimitSwitchDown = new DigitalInput(1);
         LiveWindow.addSensor("Gatherer", "limitSwitchDown", gathererlimitSwitchDown);
-        
-        gathererlimitSwitchMiddle = new DigitalInput(2);
-        LiveWindow.addSensor("Gatherer", "limitSwitchMiddle", gathererlimitSwitchMiddle);
         
         scalerscalerMotor = new Talon(2);
         LiveWindow.addActuator("Scaler", "scalerMotor", (Talon) scalerscalerMotor);

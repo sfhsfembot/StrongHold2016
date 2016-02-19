@@ -45,14 +45,14 @@ public class DriveTrain extends Subsystem {
     	this.setDefaultCommand(new DriveWithTwoJoysticks());
         //setDefaultCommand(new MySpecialCommand());
     }
-    public void motorsForward()
+    public void driveTrainMotorsForward()
     {
         robotDrive.drive(1, 0); //i switched the number from 0 to 1 ND
     }
     //sets victors to full power, causing the robot to go forward
     //KK 1/11/16
     
-    public void driveTrainStop()
+    public void driveTrainMotorsStop()
     {
         robotDrive.drive(0, 0);
     }

@@ -58,13 +58,55 @@ public class DriveWithTwoJoysticks extends Command {
     	SmartDashboard.putNumber("xAxisJoystick", Robot.oi.leftJoystick.getX());
         SmartDashboard.putNumber("yAxisJoystick", Robot.oi.leftJoystick.getY());
         
-        double precision = .9;
+        //double precision = .9;
         double xAxis = Robot.oi.leftJoystick.getX();
         double yAxis = Robot.oi.leftJoystick.getY();
        
-        xAxis = Math.round(xAxis * precision) / precision;
-        yAxis = Math.round(yAxis * precision) / precision;
+//        xAxis = Math.round(xAxis * precision) / precision;
+//        yAxis = Math.round(yAxis * precision) / precision;
+//        
+//        double leftMotor  = 0;
+//        double rightMotor = 0;
+//        
+//    //  Compute the angle in degrees
+//        double hypotenuse = Math.sqrt( ( xAxis * xAxis ) + ( yAxis * yAxis ) );
+//        double radian     = Math.acos( Math.abs( xAxis ) / hypotenuse );
+//        double angle      = ( radian *180 ) / Math.PI;
+//        
+//    //  The angle indicates the measure of turn.
+//    //  Along a straight line, with angle o, the turn coefficient is the same 
+//    //  for angles 0-90.
+//    //      angle  0 = -1
+//    //      angle 45 =  0
+//    //      angle 90 =  1
+//        double coefficient = -1 + ( angle / 90 ) * 2;
+//        double turn        = coefficient * Math.abs( Math.abs( yAxis ) - Math.abs( xAxis ) );
+//        
+//        turn = Math.round( turn * 100 ) / 100;
+//        
+//    //  Max of x-Axis or y-Axis is the movement
+//        double movement = Math.max( Math.abs( yAxis ), Math.abs( xAxis ) );
+//        
+//    //  First and third quadrant
+//        if ( ( ( xAxis >= 0 ) && ( yAxis >= 0 ) ) || ( ( xAxis < 0 ) && ( yAxis < 0 ) )  )
+//        {
+//            leftMotor  = movement;
+//            rightMotor = turn;
+//        }
+//        else
+//        {
+//            leftMotor  = turn;
+//            rightMotor = movement;
+//        }
+//        
+//    //  Reverse polarity
+//        if ( yAxis < 0 )
+//        {
+//            leftMotor  = 0 - leftMotor;
+//            rightMotor = 0 - rightMotor;
+//        }
         
+        double precision  = 100000;
         double leftMotor  = 0;
         double rightMotor = 0;
         
@@ -79,14 +121,15 @@ public class DriveWithTwoJoysticks extends Command {
     //      angle  0 = -1
     //      angle 45 =  0
     //      angle 90 =  1
+        
+        
         double coefficient = -1 + ( angle / 90 ) * 2;
         double turn        = coefficient * Math.abs( Math.abs( yAxis ) - Math.abs( xAxis ) );
-        
-        turn = Math.round( turn * 100 ) / 100;
-        
+        turn = ( double )Math.round( turn * precision ) / precision;
+                
     //  Max of x-Axis or y-Axis is the movement
-        double movement = Math.max( Math.abs( yAxis ), Math.abs( xAxis ) );
-        
+        double movement = ( double )Math.round( Math.max( Math.abs( yAxis ), Math.abs( xAxis ) ) * precision ) / precision;
+
     //  First and third quadrant
         if ( ( ( xAxis >= 0 ) && ( yAxis >= 0 ) ) || ( ( xAxis < 0 ) && ( yAxis < 0 ) )  )
         {
@@ -105,7 +148,6 @@ public class DriveWithTwoJoysticks extends Command {
             leftMotor  = 0 - leftMotor;
             rightMotor = 0 - rightMotor;
         }
-        
         SmartDashboard.putNumber("rightMotor", rightMotor);
         SmartDashboard.putNumber("leftMotor", leftMotor);
         

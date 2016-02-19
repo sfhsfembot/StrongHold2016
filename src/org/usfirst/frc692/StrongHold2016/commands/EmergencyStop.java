@@ -42,8 +42,8 @@ public class EmergencyStop extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveTrainStop();
-    	Robot.gatherer.gathererEmergencyStop();
+    	Robot.driveTrain.driveTrainMotorsStop();;
+    	Robot.gatherer.gathererStop();
     	Robot.scaler.scalerStop();
     }
 

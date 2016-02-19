@@ -46,7 +46,11 @@ public class GathererArmUp extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	if(! RobotMap.gathererlimitSwitchUp.get()){
-    		Robot.gatherer.armlift();
+    		Robot.gatherer.armLift();
+    	}
+    	else
+    	{
+    		Robot.gatherer.armLiftContinuoslyUp();
     	}
     }
 
