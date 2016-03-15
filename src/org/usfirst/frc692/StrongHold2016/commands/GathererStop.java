@@ -14,6 +14,7 @@ package org.usfirst.frc692.StrongHold2016.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc692.StrongHold2016.Robot;
+import org.usfirst.frc692.StrongHold2016.subsystems.Gatherer;
 
 /**
  *
@@ -39,16 +40,19 @@ public class GathererStop extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	Gatherer.armPosition = Gatherer.ArmPositions.Neutral;
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.gatherer.gathererStop();
     }
+    // gatherer arm stops moving
+    // KK 2/20/16
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

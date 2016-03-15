@@ -53,17 +53,30 @@ public class Scaler extends Subsystem {
     
     public void scalerMotorForward()
     {
-    	scalerMotor.set(1.0);
+    	scalerMotor.set(0.50);
     }
+    // when pressed scaler moves up 100% power
+    // KK 2/20/16
     
     public void scalerStop()
     {
     	scalerMotor.set(0.0);
     }
+    // when nothing is pressed the scaler does not move
+    // KK 2/20/16
     
-    public void releaseScaler()
+    public void scalerMotorReverse()
+    {
+    	scalerMotor.set(-0.50);
+    }
+    
+    public void scalerRelease()
+    {
+    	
+    }
+    /* public void releaseScaler()
     {
     	scalerRelease.set(Value.kReverse);
-    }
+    } */
 }
 

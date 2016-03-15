@@ -46,6 +46,8 @@ public class EmergencyStop extends Command {
     	Robot.gatherer.gathererStop();
     	Robot.scaler.scalerStop();
     }
+    // All motors will be stopped
+    // KK 2/20/16
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
