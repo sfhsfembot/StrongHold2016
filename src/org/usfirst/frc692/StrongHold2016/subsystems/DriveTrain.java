@@ -67,5 +67,11 @@ public class DriveTrain extends Subsystem {
      * KK 2/20/16
      * 
      */
+    
+    public void autonMoveForward(double speed)
+    {
+    	robotDrive.drive(speed, 0);
+    }
+    
 }
 

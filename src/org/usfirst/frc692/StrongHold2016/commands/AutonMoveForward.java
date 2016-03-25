@@ -46,7 +46,8 @@ public class AutonMoveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.driveTrainMotorsForward();
+    	
+    	Robot.driveTrain.autonMoveForward(-0.60);
     }
     // calling drive train method driveTrainMotorsForward
     // KK 2/20/16
@@ -60,7 +61,7 @@ public class AutonMoveForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.driveTrainMotorsStop();
+    	//Robot.driveTrain.driveTrainMotorsStop();
     }
     // calling drive train method driveTrainMotorsStop
     // KK 2/20/16
